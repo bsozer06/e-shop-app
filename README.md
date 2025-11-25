@@ -158,12 +158,9 @@ See [CI-CD.md](CI-CD.md) for detailed documentation.
 
 ## Deployment
 
-The application is automatically deployed when changes are merged to the `main` branch.
+The application is automatically deployed to GitHub Pages when changes are merged to the `main` branch.
 
-**Supported Platforms:**
-- Vercel (configured by default)
-- Netlify (alternative)
-- GitHub Pages (alternative)
+**Live Demo:** [https://bsozer06.github.io/e-shop-app/](https://bsozer06.github.io/e-shop-app/)
 
 See deployment documentation in [CI-CD.md](CI-CD.md).
 

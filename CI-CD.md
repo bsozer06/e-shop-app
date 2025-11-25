@@ -49,15 +49,15 @@ This project uses GitHub Actions for continuous integration and deployment. The 
 - Push to `main` branch
 - Manual workflow dispatch
 
-**Deployment Options:**
-1. **Vercel** (default, configured)
-2. **Netlify** (commented, alternative)
-3. **GitHub Pages** (commented, alternative)
+**Deployment:**
+- **GitHub Pages** (configured and active)
 
 **Steps:**
 - Runs full test suite
-- Builds production bundle
-- Deploys to selected platform
+- Builds production bundle with correct base path
+- Deploys to GitHub Pages automatically
+
+**Live URL:** `https://bsozer06.github.io/e-shop-app/`
 
 ### 4. Dependency Update (`.github/workflows/dependency-update.yml`)
 
@@ -77,35 +77,18 @@ To enable all workflows, configure these secrets in your GitHub repository:
 ### For Coverage (Optional)
 - `CODECOV_TOKEN` - Codecov integration token
 
-### For Vercel Deployment
-- `VERCEL_TOKEN` - Vercel authentication token
-- `VERCEL_ORG_ID` - Your Vercel organization ID
-- `VERCEL_PROJECT_ID` - Your Vercel project ID
+### For GitHub Pages Deployment
+**No secrets required!** GitHub Pages uses the built-in `GITHUB_TOKEN` automatically.
 
-### For Netlify Deployment (Alternative)
-- `NETLIFY_AUTH_TOKEN` - Netlify authentication token
-- `NETLIFY_SITE_ID` - Your Netlify site ID
-
-## Setting Up Secrets
+## Setting Up GitHub Pages
 
 1. Go to your GitHub repository
-2. Navigate to **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret**
-4. Add each required secret
+2. Navigate to **Settings** → **Pages**
+3. Under **Source**, select **Deploy from a branch**
+4. Select branch: **gh-pages** and folder: **/ (root)**
+5. Click **Save**
 
-### Getting Vercel Credentials
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Login and link project
-vercel login
-vercel link
-
-# Get project info
-vercel project ls
-```
+The workflow will automatically create the `gh-pages` branch on first deployment.
 
 ### Getting Codecov Token
 

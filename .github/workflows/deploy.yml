@@ -31,31 +31,11 @@ jobs:
         env:
           NODE_ENV: production
       
-      # Deploy to Vercel
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          working-directory: ./
-      
-      # Alternative: Deploy to Netlify
-      # - name: Deploy to Netlify
-      #   uses: nwtgck/actions-netlify@v3
-      #   with:
-      #     publish-dir: './dist'
-      #     production-branch: main
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     deploy-message: "Deploy from GitHub Actions"
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      
-      # Alternative: Deploy to GitHub Pages
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy to GitHub Pages'
