@@ -43,23 +43,7 @@ This project uses GitHub Actions for continuous integration and deployment. The 
 - Comments coverage on PRs
 - Uploads coverage artifacts
 
-### 3. Deploy Workflow (`.github/workflows/deploy.yml`)
-
-**Triggers:**
-- Push to `main` branch
-- Manual workflow dispatch
-
-**Deployment:**
-- **GitHub Pages** (configured and active)
-
-**Steps:**
-- Runs full test suite
-- Builds production bundle with correct base path
-- Deploys to GitHub Pages automatically
-
-**Live URL:** `https://bsozer06.github.io/e-shop-app/`
-
-### 4. Dependency Update (`.github/workflows/dependency-update.yml`)
+### 3. Dependency Update (`.github/workflows/dependency-update.yml`)
 
 **Triggers:**
 - Scheduled: Every Monday at 9:00 AM UTC
@@ -77,18 +61,17 @@ To enable all workflows, configure these secrets in your GitHub repository:
 ### For Coverage (Optional)
 - `CODECOV_TOKEN` - Codecov integration token
 
-### For GitHub Pages Deployment
-**No secrets required!** GitHub Pages uses the built-in `GITHUB_TOKEN` automatically.
+## Deployment
 
-## Setting Up GitHub Pages
+This project is deployed on **Vercel** with automatic GitHub integration.
 
-1. Go to your GitHub repository
-2. Navigate to **Settings** → **Pages**
-3. Under **Source**, select **Deploy from a branch**
-4. Select branch: **gh-pages** and folder: **/ (root)**
-5. Click **Save**
+### Vercel Deployment
+- Deployment is handled by Vercel's GitHub integration
+- Every push to `main` triggers automatic deployment
+- Every PR gets a preview URL
+- No GitHub Actions workflow needed
 
-The workflow will automatically create the `gh-pages` branch on first deployment.
+See [VERCEL-DEPLOYMENT.md](VERCEL-DEPLOYMENT.md) for detailed setup instructions.
 
 ### Getting Codecov Token
 
@@ -104,7 +87,6 @@ Add these badges to your README:
 ```markdown
 ![CI](https://github.com/bsozer06/e-shop-app/workflows/CI/badge.svg)
 ![Coverage](https://github.com/bsozer06/e-shop-app/workflows/Coverage/badge.svg)
-![Deploy](https://github.com/bsozer06/e-shop-app/workflows/Deploy/badge.svg)
 ```
 
 ## Local Testing
@@ -145,19 +127,25 @@ Recommended settings for `main` branch:
 
 ### Development Flow
 ```
-feature-branch → dev → main → production
+feature-branch → dev → main → production (Vercel)
 ```
 
 1. **Feature branches** → Create PR to `dev`
 2. **Dev branch** → Runs CI, merged after approval
-3. **Main branch** → Triggers deployment after merge
-4. **Production** → Automatically deployed from `main`
+3. **Main branch** → Triggers Vercel deployment after merge
+4. **Production** → Automatically deployed by Vercel
 
 ### Rollback Strategy
 
+**Via Git:**
 1. Revert commit on `main` branch
 2. Push the revert
-3. Automatic redeployment with previous version
+3. Vercel automatically redeploys previous version
+
+**Via Vercel Dashboard:**
+1. Go to Vercel project deployments
+2. Find previous successful deployment
+3. Click "Promote to Production"
 
 ## Performance Optimization
 
@@ -166,7 +154,7 @@ feature-branch → dev → main → production
 - Build artifacts cached for 7 days
 
 ### Matrix Strategy
-- Tests run on Node.js 18.x and 20.x
+- Tests run on Node.js 20.x and 22.x
 - Ensures compatibility across versions
 
 ## Monitoring and Notifications
