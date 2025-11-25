@@ -27,18 +27,21 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage -- --run
       
-      - name: Generate coverage badge
-        uses: cicirello/jacoco-badge-generator@v2
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
         with:
-          badges-directory: badges
-          generate-branches-badge: true
-          generate-summary: true
+          file: ./coverage/coverage-final.json
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
       
-      - name: Upload coverage reports
+      - name: Upload coverage reports as artifact
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage/
+          retention-days: 30
       
       - name: Comment coverage on PR
         if: github.event_name == 'pull_request'
@@ -46,11 +49,23 @@ jobs:
         with:
           lcov-file: ./coverage/lcov.info
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          delete-old-comments: true
       
-      - name: Coverage Summary
+      - name: Generate Coverage Summary
+        if: always()
         run: |
-          echo "## Test Coverage Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Test Coverage Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          cat coverage/coverage-summary.txt || echo "Coverage summary not available"
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "coverage/coverage-summary.json" ]; then
+            echo "### Coverage Details" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat coverage/coverage-summary.json >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Coverage summary not available" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📁 Full coverage report available in artifacts" >> $GITHUB_STEP_SUMMARY
