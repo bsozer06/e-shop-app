@@ -1,75 +1,75 @@
 # 🚀 Vercel Deployment Guide
 
-Vercel üzerinden deployment çok basit! GitHub ile otomatik entegrasyon sağlıyor.
+Deploying on Vercel is super easy! It provides automatic GitHub integration.
 
-## 📋 Adım Adım Kurulum
+## 📋 Step-by-Step Setup
 
-### 1. Vercel Hesabı Oluştur
+### 1. Create a Vercel Account
 
-1. [vercel.com](https://vercel.com) adresine git
-2. **Sign Up** butonuna tıkla
-3. **Continue with GitHub** seçeneğini seç
-4. GitHub hesabınla giriş yap
+1. Go to [vercel.com](https://vercel.com)
+2. Click the **Sign Up** button
+3. Select **Continue with GitHub**
+4. Sign in with your GitHub account
 
-### 2. Projeyi Import Et
+### 2. Import Your Project
 
-1. Vercel dashboard'unda **Add New...** → **Project** seç
-2. GitHub repository'lerini göreceksin
-3. **`e-shop-app`** repository'sini bul
-4. **Import** butonuna tıkla
+1. In your Vercel dashboard, click **Add New...** → **Project**
+2. You'll see your GitHub repositories
+3. Find the **`e-shop-app`** repository
+4. Click the **Import** button
 
-### 3. Proje Ayarları (Otomatik Algılanır)
+### 3. Project Settings (Auto-Detected)
 
-Vercel otomatik olarak şunları algılayacak:
+Vercel will automatically detect:
 - ✅ Framework: **Vite**
 - ✅ Build Command: `npm run build`
 - ✅ Output Directory: `dist`
 - ✅ Install Command: `npm ci`
 
-**Hiçbir şey değiştirmene gerek yok!** Direkt **Deploy** butonuna bas.
+**No need to change anything!** Just click the **Deploy** button.
 
-### 4. Deployment Başlasın! 🎉
+### 4. Let the Deployment Begin! 🎉
 
-- İlk deployment 2-3 dakika sürer
-- Her commit otomatik olarak deploy edilir
-- Her PR için preview URL oluşturulur
+- Initial deployment takes 2-3 minutes
+- Every commit will be automatically deployed
+- Preview URLs are created for each PR
 
-## 🌐 Canlı URL
+## 🌐 Live URLs
 
-Deployment tamamlandıktan sonra Vercel size 3 URL verecek:
+After deployment completes, Vercel will provide you with 3 URLs:
 
 1. **Production URL**: `https://e-shop-app-xxx.vercel.app`
-2. **Custom Domain** (opsiyonel): Kendi domain'inizi bağlayabilirsiniz
-3. **Latest URL**: Her deployment için benzersiz URL
+2. **Custom Domain** (optional): You can connect your own domain
+3. **Latest URL**: Unique URL for each deployment
 
-## ⚙️ Otomatik Özellikler
+## ⚙️ Automatic Features
 
-Vercel otomatik olarak şunları sağlıyor:
+Vercel automatically provides:
 
-- ✅ **HTTPS/SSL** - Ücretsiz SSL sertifikası
-- ✅ **Global CDN** - Dünya çapında hızlı erişim
-- ✅ **Auto Deploy** - Her push otomatik deployment
-- ✅ **Preview URLs** - Her PR için test ortamı
-- ✅ **Analytics** - Ziyaretçi istatistikleri (ücretsiz)
-- ✅ **Automatic Rewrites** - SPA routing otomatik çalışır
+- ✅ **HTTPS/SSL** - Free SSL certificate
+- ✅ **Global CDN** - Fast access worldwide
+- ✅ **Auto Deploy** - Automatic deployment on every push
+- ✅ **Preview URLs** - Test environment for each PR
+- ✅ **Analytics** - Visitor statistics (free)
+- ✅ **Automatic Rewrites** - SPA routing works automatically
 
-## 🔄 Yapılan Değişiklikler
+## 🔄 Changes Made
 
 ### 1. Vite Config (`vite.config.ts`)
 ```typescript
-// ❌ KALDI: base: '/e-shop-app/'
-// ✅ Vercel root'tan serve eder, base path gerekmez
+// ❌ REMOVED: base: '/e-shop-app/'
+// ✅ Vercel serves from root, no base path needed
 ```
 
 ### 2. App Router (`src/App.tsx`)
 ```typescript
-// ❌ KALDI: <BrowserRouter basename="/e-shop-app">
-// ✅ YENİ: <BrowserRouter>
+// ❌ REMOVED: <BrowserRouter basename="/e-shop-app">
+// ✅ NEW: <BrowserRouter>
 ```
 
 ### 3. Deploy Workflow (`.github/workflows/deploy.yml`)
-- GitHub Pages deployment devre dışı bırakıldı
-- Vercel kendi otomasyonunu kullanacak
+- GitHub Pages deployment has been disabled
+- Vercel will use its own automation
 
 ## 📊 GitHub vs Vercel
 
@@ -84,29 +84,29 @@ Vercel otomatik olarak şunları sağlıyor:
 | Custom Domain | Sınırlı | Tam destek |
 | Deploy Speed | ~3-5 dakika | ~1-2 dakika |
 
-## 🎯 Sonraki Adımlar
+## 🎯 Next Steps
 
-1. ✅ Vercel'e kaydol ve GitHub'ı bağla
-2. ✅ Repository'yi import et
-3. ✅ Deploy butonuna bas
-4. ✅ Canlı URL'i paylaş!
+1. ✅ Sign up on Vercel and connect GitHub
+2. ✅ Import your repository
+3. ✅ Click the Deploy button
+4. ✅ Share your live URL!
 
 ## 🐛 Troubleshooting
 
-### Build Başarısız Olursa
-- Vercel build loglarını kontrol et
-- Lokal olarak `npm run build` çalıştır
-- Hata varsa düzelt ve push et
+### If Build Fails
+- Check Vercel build logs
+- Run `npm run build` locally
+- Fix any errors and push again
 
-### SPA Routing Çalışmıyorsa
-- `vercel.json` dosyası zaten hazır
-- Otomatik rewrite yapılacak
-- Her route için index.html serve edilecek
+### If SPA Routing Doesn't Work
+- The `vercel.json` file is already configured
+- Automatic rewrites will be applied
+- index.html will be served for all routes
 
-## 📚 Kaynaklar
+## 📚 Resources
 
 - [Vercel Documentation](https://vercel.com/docs)
 - [Vite + Vercel Guide](https://vercel.com/docs/frameworks/vite)
 - [Custom Domains](https://vercel.com/docs/concepts/projects/custom-domains)
 
-Kolay gelsin! 🚀
+Happy deploying! 🚀
