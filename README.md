@@ -1,0 +1,120 @@
+# E-Shop - React + TypeScript E-Commerce Application
+
+A modern e-commerce application built with React, TypeScript, and Tailwind CSS, following best practices and atomic design principles.
+
+## Features
+
+- 🛍️ Product listing with category filtering
+- 🔍 Search functionality
+- 🛒 Shopping cart with quantity management
+- 🔐 Authentication (login/logout)
+- 📱 Responsive design
+- ⚡ Fast and optimized with Vite
+- 🎨 Styled with Tailwind CSS
+- 🔔 Toast notifications
+- 📦 Code splitting for optimal performance
+
+## Tech Stack
+
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **React Router** - Routing
+- **Axios** - HTTP client
+- **Tailwind CSS** - Styling
+- **React Hot Toast** - Notifications
+- **FakeStore API** - Backend API
+
+## Project Structure
+
+```
+src/
+├── api/              # API service functions
+├── components/
+│   ├── atoms/        # Basic UI components (Button, Input)
+│   ├── molecules/    # Composite components (ProductCard, SearchBar)
+│   └── organisms/    # Complex components (Header, ProductList)
+├── context/          # React Context providers
+├── hooks/            # Custom React hooks
+├── pages/            # Page components
+└── types/            # TypeScript type definitions
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Test Credentials
+
+Use these credentials to test the login functionality:
+- **Username:** mor_2314
+- **Password:** 83r5^_
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Features in Detail
+
+### Authentication
+- Login with FakeStore API
+- Token-based authentication
+- Protected routes
+- Persistent login state
+
+### Shopping Cart
+- Add/remove products
+- Update quantities
+- Local storage persistence
+- Real-time total calculation
+
+### Product Catalog
+- View all products
+- Filter by category
+- Search by name/description
+- Detailed product view
+
+## Best Practices Implemented
+
+- ✅ Atomic Design Pattern
+- ✅ Custom Hooks for reusable logic
+- ✅ Context API for state management
+- ✅ TypeScript for type safety
+- ✅ Code splitting with React.lazy
+- ✅ Error handling
+- ✅ Loading states
+- ✅ Responsive design
+
+## API
+
+This project uses the [FakeStore API](https://fakestoreapi.com/) for product and authentication data.
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## License
+
+MIT
+```
