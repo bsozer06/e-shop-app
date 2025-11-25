@@ -1,8 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider } from './context/AuthContext';
-import { CartProvider } from './context/CartContext';
+import { AuthProvider, CartProvider } from './context';
 import { Header } from './components/organisms/Header';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 

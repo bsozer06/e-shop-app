@@ -1,7 +1,7 @@
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import type { ReactNode } from 'react';
-import { CartProvider } from './CartContext';
+import { CartProvider } from './CartProvider';
 import { useCart } from './../hooks/useCart';
 import type { Product } from '../types';
 import toast from 'react-hot-toast';

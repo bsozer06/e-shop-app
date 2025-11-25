@@ -1,20 +1,8 @@
-import { createContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { Product, CartItem } from '../types';
 import toast from 'react-hot-toast';
-
-interface CartContextType {
-  items: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
-  clearCart: () => void;
-  totalItems: number;
-  totalPrice: number;
-}
-
-// @ts-expect-error - Context will be provided by CartProvider
-export const CartContext = createContext<CartContextType>(undefined);
+import { CartContext } from './CartContext';
 
 interface CartProviderProps {
   children: ReactNode;

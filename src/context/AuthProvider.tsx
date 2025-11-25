@@ -1,19 +1,9 @@
-import { createContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { authApi } from '../api';
 import type { AuthCredentials } from '../types';
 import toast from 'react-hot-toast';
-
-interface AuthContextType {
-  token: string | null;
-  isAuthenticated: boolean;
-  login: (credentials: AuthCredentials) => Promise<void>;
-  logout: () => void;
-  loading: boolean;
-}
-
-// @ts-expect-error - Context will be provided by AuthProvider
-export const AuthContext = createContext<AuthContextType>(undefined);
+import { AuthContext } from './AuthContext';
 
 interface AuthProviderProps {
   children: ReactNode;
