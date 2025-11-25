@@ -13,7 +13,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage').then(m => ({ default: m
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/e-shop-app">
       <AuthProvider>
         <CartProvider>
           <div className="min-h-screen bg-gray-50">
