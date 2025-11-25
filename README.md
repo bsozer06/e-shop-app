@@ -1,5 +1,9 @@
 # E-Shop - React + TypeScript E-Commerce Application
 
+![CI](https://github.com/bsozer06/e-shop-app/workflows/CI/badge.svg)
+![Coverage](https://github.com/bsozer06/e-shop-app/workflows/Coverage/badge.svg)
+![Deploy](https://github.com/bsozer06/e-shop-app/workflows/Deploy/badge.svg)
+
 A modern e-commerce application built with React, TypeScript, and Tailwind CSS, following best practices and atomic design principles.
 
 ## Features
@@ -139,9 +143,37 @@ npm run test:coverage
 
 This project uses the [FakeStore API](https://fakestoreapi.com/) for product and authentication data.
 
+## CI/CD
+
+This project includes a complete CI/CD pipeline using GitHub Actions:
+
+- ✅ Automated testing on every push and PR
+- ✅ Code linting and quality checks
+- ✅ Test coverage reporting
+- ✅ Security vulnerability scanning
+- ✅ Automated deployment to production
+- ✅ Weekly dependency updates
+
+See [CI-CD.md](CI-CD.md) for detailed documentation.
+
+## Deployment
+
+The application is automatically deployed when changes are merged to the `main` branch.
+
+**Supported Platforms:**
+- Vercel (configured by default)
+- Netlify (alternative)
+- GitHub Pages (alternative)
+
+See deployment documentation in [CI-CD.md](CI-CD.md).
+
 ## Contributing
 
-Feel free to submit issues and enhancement requests!
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
