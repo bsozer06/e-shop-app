@@ -2,9 +2,8 @@
 
 ![CI](https://github.com/bsozer06/e-shop-app/workflows/CI/badge.svg)
 ![Coverage](https://github.com/bsozer06/e-shop-app/workflows/Coverage/badge.svg)
-![Deploy](https://github.com/bsozer06/e-shop-app/workflows/Deploy/badge.svg)
 
-🚀 **Live Demo:** [https://bsozer06.github.io/e-shop-app/](https://bsozer06.github.io/e-shop-app/)
+🚀 **Deploy to Vercel:** See [VERCEL-DEPLOYMENT.md](VERCEL-DEPLOYMENT.md) for setup guide
 
 A modern e-commerce application built with React, TypeScript, and Tailwind CSS, following best practices and atomic design principles.
 
@@ -160,11 +159,16 @@ See [CI-CD.md](CI-CD.md) for detailed documentation.
 
 ## Deployment
 
-The application is automatically deployed to GitHub Pages when changes are merged to the `main` branch.
+This application is ready to deploy on **Vercel** with zero configuration!
 
-**Live Demo:** [https://bsozer06.github.io/e-shop-app/](https://bsozer06.github.io/e-shop-app/)
+### Quick Deploy to Vercel
 
-See deployment documentation in [CI-CD.md](CI-CD.md).
+1. Sign up at [vercel.com](https://vercel.com)
+2. Import your GitHub repository
+3. Click **Deploy**
+4. Done! ✨
+
+See detailed guide: [VERCEL-DEPLOYMENT.md](VERCEL-DEPLOYMENT.md)
 
 ## Contributing
 
