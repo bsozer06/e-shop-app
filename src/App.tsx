@@ -29,7 +29,7 @@ function App() {
               </Routes>
             </Suspense>
           </div>
-          <Toaster position="top-right" />
+          <Toaster position="bottom-right" />
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>
