@@ -4,6 +4,8 @@
 ![Coverage](https://github.com/bsozer06/e-shop-app/workflows/Coverage/badge.svg)
 ![Deploy](https://github.com/bsozer06/e-shop-app/workflows/Deploy/badge.svg)
 
+🚀 **Live Demo:** [https://bsozer06.github.io/e-shop-app/](https://bsozer06.github.io/e-shop-app/)
+
 A modern e-commerce application built with React, TypeScript, and Tailwind CSS, following best practices and atomic design principles.
 
 ## Features
