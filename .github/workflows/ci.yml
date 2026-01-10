@@ -2,9 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main, dev, dev_unit_tests_*]
+    # branches: [main, dev, dev_unit_tests_*]
+     branches:
+      - main
+      - dev
+      - "dev_unit_tests_*"
   pull_request:
-    branches: [main, dev]
+   branches:
+      - main
+      - dev
+    # branches: [main, dev]
 
 jobs:
   test:
@@ -34,17 +41,17 @@ jobs:
       - name: Run tests
         run: npm test -- --run
       
-      - name: Generate coverage report
-        run: npm run test:coverage -- --run
+      # - name: Generate coverage report
+      #   run: npm run test:coverage -- --run
       
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/coverage-final.json
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v4
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     files: ./coverage/coverage-final.json
+      #     flags: unittests
+      #     name: codecov-umbrella
+      #     fail_ci_if_error: false
 
   build:
     name: Build
@@ -72,7 +79,7 @@ jobs:
         with:
           name: dist
           path: dist/
-          retention-days: 7
+          retention-days: 30
 
   security:
     name: Security Audit
@@ -93,4 +100,5 @@ jobs:
         continue-on-error: true
       
       - name: Check for vulnerabilities
-        run: npm audit --production --audit-level=high
+        # run: npm audit --production --audit-level=high
+      - run: npm audit --omit=dev
