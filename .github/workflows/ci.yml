@@ -3,15 +3,8 @@ name: CI
 on:
   push:
     branches: [main, dev, dev_unit_tests_*]
-    #  branches:
-    #   - main
-    #   - dev
-    #   - "dev_unit_tests_*"
   pull_request:
     branches: [main, dev]
-  #  branches:
-  #     - main
-  #     - dev
 
 jobs:
   test:
