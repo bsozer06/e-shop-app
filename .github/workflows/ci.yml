@@ -93,5 +93,4 @@ jobs:
         continue-on-error: true
       
       - name: Check for vulnerabilities
-        # run: npm audit --production --audit-level=high
-      - run: npm audit --omit=dev
+        run: npm audit --production --audit-level=high
